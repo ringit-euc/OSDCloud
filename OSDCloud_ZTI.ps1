@@ -114,7 +114,7 @@ Start /Wait PowerShell -NoL -C Restart-Computer -Force
 '@
 $OOBEAutopilotCMD | Out-File -FilePath 'C:\Windows\System32\OOBEAutopilot.cmd' -Encoding ascii -Force
 
-<#================================================
+================================================
 #  [PostOS] SetupComplete CMD Command Line
 #================================================
 Write-Host -ForegroundColor Green "Create C:\Windows\Setup\Scripts\SetupComplete.cmd"
@@ -126,7 +126,7 @@ RD C:\OSDCloud /S /Q
 RD C:\Drivers /S /Q
 RD C:\Temp /S /Q
 '@
-$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -Force#>
+$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -Force
 
 #=======================================================================
 #   Restart-Computer
