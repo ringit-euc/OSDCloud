@@ -105,10 +105,10 @@ PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -Force
 Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
 Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -Force -Verbose
 Start /Wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
-Start /Wait PowerShell -NoL -C wusa.exe /uninstall /KB:5013942
 Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/ringit-euc/OSDCloud/main/Install-EmbeddedProductKey.ps1
-Start /Wait PowerShell -NoL -C Start-OOBEDeploy
+Start /Wait PowerShell -NoL -C wusa.exe /uninstall /KB:5013942
 Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
+Start /Wait PowerShell -NoL -C Start-OOBEDeploy
 Start /Wait PowerShell -NoL -C Restart-Computer -Force
 '@
 $OOBEAutopilotCMD | Out-File -FilePath 'C:\Windows\System32\OOBEAutopilot.cmd' -Encoding ascii -Force
