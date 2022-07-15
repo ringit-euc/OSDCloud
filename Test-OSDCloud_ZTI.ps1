@@ -1,28 +1,23 @@
-Write-Host  -ForegroundColor Cyan "Starting OSDCloud ..."
-Start-Sleep -Seconds 5
-
-#Change Display Resolution for Virtual Machine
-if ((Get-MyComputerModel) -match 'Virtual') {
-    Write-Host  -ForegroundColor Cyan "Setting Display Resolution to 1366x"
-    Set-DisRes 1366
-}
 cls
-Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
-Write-Host "1: Zero-Touch Windows 10 21H2 | en-us | Professional"-ForegroundColor Yellow
-Write-Host "2: Start the graphical OSDCloud" -ForegroundColor Yellow
-Write-Host "3: Exit" -ForegroundColor Yellow
+Write-Host "===================== OSDCloud Main Menu =======================" -ForegroundColor Cyan
+Write-Host " "
+Write-Host "1: Zero-Touch Windows 10 21H2 | en-us | Professional"-ForegroundColor Cyan
+Write-Host "2: Zero-Touch Windows 11 21H2 | en-us | Professional - NOT CERTIFIED YET - FOR TESTING ONLY"-ForegroundColor Cyan
+Write-Host "3: Start the graphical OSDCloud" -ForegroundColor Cyan
+Write-Host "4: Exit" -ForegroundColor Cyan
+Write-Host " "
+Write-Host "================================================================" -ForegroundColor Cyan
 
-Write-Host "`n WARNING: USE AT YOUR OWN RISK - Going further will erase all data on your disk ! `n"-ForegroundColor Red
+Write-Host "`n WARNING: USE AT YOUR OWN RISK - Going further will erase all data on your disk!!! `n"-ForegroundColor Yellow -BackgroundColor Red
 
 $input = Read-Host "Please make a selection"
-
-Write-Host  -ForegroundColor Yellow "Loading OSDCloud..."
 
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
-    '2' { Start-OSDCloudGUI } 
-    '3' { Exit }  
+    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
+    '3' { Start-OSDCloudGUI } 
+    '4' { Exit }  
 }
 
 #================================================
