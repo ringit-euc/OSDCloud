@@ -8,9 +8,14 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 }
 cls
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
-Write-Host "1: Install Windows 10 21H2 | en-us | Professional"-ForegroundColor Yellow
-Write-Host "2: Exit" -ForegroundColor Yellow
+Write-Host "1: Zero-Touch Windows 10 21H2 | en-us | Professional"-ForegroundColor Yellow
+Write-Host "2: Start the graphical OSDCloud" -ForegroundColor Yellow
+Write-Host "3: Exit" -ForegroundColor Yellow
+
+Write-Host "`n WARNING: USE AT YOUR OWN RISK - Going further will erase all data on your disk ! `n"-ForegroundColor Red
+
 $input = Read-Host "Please make a selection"
+
 Write-Host  -ForegroundColor Yellow "Loading OSDCloud..."
 
 #Make sure I have the latest OSD Content
@@ -23,7 +28,8 @@ Import-Module OSD -Force
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
-    '2' { Exit }  
+    '2' { Start-OSDCloudGUI } 
+    '3' { Exit }  
 }
 
 #================================================
