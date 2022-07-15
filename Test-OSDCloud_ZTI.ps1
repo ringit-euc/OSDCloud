@@ -18,13 +18,6 @@ $input = Read-Host "Please make a selection"
 
 Write-Host  -ForegroundColor Yellow "Loading OSDCloud..."
 
-#Make sure I have the latest OSD Content
-Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
-Install-Module OSD -Force
-
-Write-Host  -ForegroundColor Cyan "Importing PowerShell Modules"
-Import-Module OSD -Force
-
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
