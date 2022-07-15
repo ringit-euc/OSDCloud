@@ -80,15 +80,13 @@ $AutopilotOOBEJson = @'
     "Hidden":  [
                    "AssignedComputerName",
                    "AssignedUser",
-                   "PostAction",
-                   "Assign",
+                   "Docs",
+                   "Run",
                    "GroupTag",
                    "AddToGroup"
                ],
     "PostAction":  "Quit",
-    "Run":  "NetworkingWireless",
-    "Docs":  "https://docs.microsoft.com/en-us/mem/autopilot/troubleshooting",
-    "Title":  "RCIT Autopilot Registration"
+    "Title":  "Autopilot Registration"
 }
 '@
 If (!(Test-Path "C:\ProgramData\OSDeploy")) {
