@@ -100,7 +100,7 @@ Start /Wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/ringit-euc/OSDCloud/main/Install-EmbeddedProductKey.ps1
 Start /Wait PowerShell -NoL -C Install-Module -Name PSWindowsUpdate -Force
 Start /Wait PowerShell -NoL -C Import-Module -Name PSWindowsUpdate -Force
-Start /Wait PowerShell -NoL -C  Get-WindowsUpdate -KBArticleID KB5014699 -Install -Confirm:$false
+Start /Wait PowerShell -NoL -C Get-WindowsUpdate -KBArticleID KB5014699 -Install -Confirm:$false
 Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
 Start /Wait PowerShell -NoL -C Start-OOBEDeploy
 Start /Wait PowerShell -NoL -C Restart-Computer -Force
