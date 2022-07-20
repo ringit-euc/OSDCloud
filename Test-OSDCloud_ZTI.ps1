@@ -77,7 +77,8 @@ $AutopilotOOBEJson = @'
                    "Docs",
                    "Run",
                    "GroupTag",
-                   "AddToGroup"
+                   "AddToGroup",
+                   "PostAction"
                ],
     "PostAction":  "Quit",
     "Title":  "Autopilot Registration",
