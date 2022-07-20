@@ -80,7 +80,8 @@ $AutopilotOOBEJson = @'
                    "AddToGroup"
                ],
     "PostAction":  "Quit",
-    "Title":  "Autopilot Registration"
+    "Title":  "Autopilot Registration",
+    "Disabled": "Assign"
 }
 '@
 If (!(Test-Path "C:\ProgramData\OSDeploy")) {
