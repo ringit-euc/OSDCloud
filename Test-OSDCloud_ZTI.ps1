@@ -8,7 +8,7 @@ Write-Host "4: Exit" -ForegroundColor Cyan
 Write-Host " "
 Write-Host "================================================================" -ForegroundColor Cyan
 
-Write-Host "`n WARNING: Going further will erase all data on the disk!!! `n"-ForegroundColor Yellow -BackgroundColor Red
+Write-Host "`n WARNING: Going further will erase all data on the disk!!! `n" -ForegroundColor Yellow -BackgroundColor Red
 
 $input = Read-Host "Please make a selection"
 
