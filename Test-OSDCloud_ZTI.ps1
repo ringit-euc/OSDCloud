@@ -123,7 +123,7 @@ $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.c
 #=======================================================================
 #   Restart-Computer
 #=======================================================================
-Write-Host -Foregroundcolor Yellow "*****  REMOVE THE USB DRIVE NOW *****"
+Write-Host "*****  REMOVE THE USB DRIVE NOW *****" -ForegroundColor Yellow -BackgroundColor Red 
 Read-Host "The next step is to reboot the machine, connect to wifi/lan then press Shift + F10 to open a command prompt. 
 Type-in OOBEAutopilot.cmd, then hit enter and wait to complete the autopilot and updates build. 
 Press the ENTER key to continue...."
