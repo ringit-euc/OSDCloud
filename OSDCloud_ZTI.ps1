@@ -1,9 +1,23 @@
-#================================================
-#   [PreOS] Update Module
-#================================================
-if ((Get-MyComputerModel) -match 'Virtual') {
-    Write-Host  -ForegroundColor Green "Setting Display Resolution to 1600x"
-    Set-DisRes 1600
+cls
+Write-Host "===================== OSDCloud Main Menu =======================" -ForegroundColor Cyan
+Write-Host " "
+Write-Host "1: Zero-Touch Windows 10 21H2 | en-us | Professional" -ForegroundColor Cyan
+Write-Host "2: Zero-Touch Windows 11 21H2 | en-us | Professional (Not Certified Yet - For Testing)" -ForegroundColor Cyan
+Write-Host "3: Start the Graphical OSDCloud (Manual Selection)" -ForegroundColor Cyan
+Write-Host "4: Exit" -ForegroundColor Cyan
+Write-Host " "
+Write-Host "================================================================" -ForegroundColor Cyan
+
+Write-Host "`n WARNING: Going further will erase all data on the disk!!! `n" -ForegroundColor Yellow -BackgroundColor Red
+
+$input = Read-Host "Please make a selection"
+
+switch ($input)
+{
+    '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
+    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 21H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
+    '3' { Start-OSDCloudGUI } 
+    '4' { Exit }  
 }
 
 Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
@@ -11,22 +25,6 @@ Install-Module OSD -Force -SkipPublisherCheck
 
 Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
 Import-Module OSD -Force   
-
-#=======================================================================
-#   [OS] Params and Start-OSDCloud
-#=======================================================================
-$Params = @{
-    OSVersion = "Windows 10"
-    OSBuild = "21H2"
-    OSEdition = "Pro"
-    OSLanguage = "en-us"
-    OSLicense = "Retail"
-    ZTI = $true
-    Firmware = $true
-    SkipAutopilot = $true
-    SkipODT = $true
-}
-Start-OSDCloud @Params
 
 #================================================
 #  [PostOS] OOBEDeploy Configuration
@@ -82,15 +80,15 @@ $AutopilotOOBEJson = @'
     "Hidden":  [
                    "AssignedComputerName",
                    "AssignedUser",
-                   "PostAction",
-                   "Assign",
+                   "Docs",
+                   "Run",
                    "GroupTag",
-                   "AddToGroup"
+                   "AddToGroup",
+                   "PostAction"
                ],
     "PostAction":  "Quit",
-    "Run":  "NetworkingWireless",
-    "Docs":  "https://docs.microsoft.com/en-us/mem/autopilot/troubleshooting",
-    "Title":  "RCIT Autopilot Registration"
+    "Title":  "Autopilot Registration",
+    "Disabled": "Assign"
 }
 '@
 If (!(Test-Path "C:\ProgramData\OSDeploy")) {
@@ -131,7 +129,7 @@ $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.c
 #=======================================================================
 #   Restart-Computer
 #=======================================================================
-Write-Host -Foregroundcolor Magenta "*****  REMOVE THE USB DRIVE NOW *****"
+Write-Host "*****  REMOVE THE USB DRIVE NOW *****" -ForegroundColor Yellow -BackgroundColor Red 
 Read-Host "The next step is to reboot the machine, connect to wifi/lan then press Shift + F10 to open a command prompt. 
 Type-in OOBEAutopilot.cmd, then hit enter and wait to complete the autopilot and updates build. 
 Press the ENTER key to continue...."
