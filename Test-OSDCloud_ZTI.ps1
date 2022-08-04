@@ -20,6 +20,12 @@ switch ($input)
     '4' { Exit }  
 }
 
+Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
+Install-Module OSD -Force -SkipPublisherCheck
+
+Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
+Import-Module OSD -Force   
+
 #================================================
 #  [PostOS] OOBEDeploy Configuration
 #================================================
