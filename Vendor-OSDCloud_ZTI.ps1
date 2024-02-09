@@ -1,4 +1,4 @@
-Write-Host  -ForegroundColor Cyan 'Windows 11 Pro 23H2 Pro Autopilot en-US'
+Write-Host  -ForegroundColor Cyan 'Windows 11 Pro 23H2 Autopilot en-US'
 
 #================================================
 #   PreOS
