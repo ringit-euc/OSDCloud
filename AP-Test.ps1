@@ -9,7 +9,8 @@ $AutopilotParams = @{
     TenantId = "${{secrets.EIDTENANT}}"
     AppId = "${{secrets.EIDAPPID}}"
     AppSecret = "${{secrets.EIDAPPSECRET}}"
-    }
-    Get-WindowsAutoPilotInfo @AutopilotParams
+}
+
+Get-WindowsAutoPilotInfo @AutopilotParams
 
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
