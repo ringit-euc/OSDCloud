@@ -1,12 +1,29 @@
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted -Force
+
+Install-PackageProvider -Name NuGet -Force | Out-Null
+Install-Script -Name Get-WindowsAutoPilotInfo -Force | Out-Null
+Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
+
 # Retrieve secrets from environment variables
-$TenantID = $env:EIDTENANT
-$AppID = $env:EIDAPPID
+$TenantId = $env:EIDTENANT
+$AppId = $env:EIDAPPID
 $AppSecret = $env:EIDAPPSECRET
 
-Set-ExecutionPolicy Unrestricted -Force
+Write-Host "Debugging: Tenant ID: $TenantId"
+Write-Host "Debugging: App ID: $AppId"
+# Write out the AppSecret for debugging. It's not recommended to output secrets like this in a real environment.
+Write-Host "Debugging: App Secret: $AppSecret"
 
-Install-PackageProvider NuGet -Force -ErrorAction SilentlyContinue
-Install-Script Get-WindowsAutoPilotInfo -Force
-Get-WindowsAutoPilotInfo -Online -TenantId $TenantID -AppID $AppID -AppSecret $AppSecret 
+$AutopilotParams = @{
+    Online = $true
+    TenantId = $TenantId
+    AppId = $AppId
+    AppSecret = $AppSecret
+}
 
-Set-ExecutionPolicy RemoteSigned -Force
+Write-Host "Debugging: Executing Get-WindowsAutoPilotInfo with parameters:"
+Write-Host "Debugging: $AutopilotParams"
+
+Get-WindowsAutoPilotInfo @AutopilotParams
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
