@@ -4,11 +4,16 @@ Install-PackageProvider -Name NuGet -Force | Out-Null
 Install-Script -Name Get-WindowsAutoPilotInfo -Force | Out-Null
 Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
 
+# Retrieve secrets from environment variables
+$TenantId = $env:EIDTENANT
+$AppId = $env:EIDAPPID
+$AppSecret = $env:EIDAPPSECRET
+
 $AutopilotParams = @{
     Online = $true
-    TenantId = "${{secrets.EIDTENANT}}"
-    AppId = "${{secrets.EIDAPPID}}"
-    AppSecret = "${{secrets.EIDAPPSECRET}}"
+    TenantId = $TenantId
+    AppId = $AppId
+    AppSecret = $AppSecret
 }
 
 Get-WindowsAutoPilotInfo @AutopilotParams
