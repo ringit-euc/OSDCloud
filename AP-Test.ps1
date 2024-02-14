@@ -16,9 +16,9 @@ Write-Host "Debugging: App Secret: $AppSecret"
 
 $AutopilotParams = @{
     Online = $true
-    TenantId = $TenantId
-    AppId = $AppId
-    AppSecret = $AppSecret
+    TenantId = ${{secrets.EIDTENANT}}
+    AppId = ${{secrets.EIDAPPID}}
+    AppSecret = ${{secrets.EIDAPPSECRET}}
 }
 
 Write-Host "Debugging: Executing Get-WindowsAutoPilotInfo with parameters:"
