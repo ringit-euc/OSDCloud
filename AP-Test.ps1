@@ -11,9 +11,9 @@ Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
 
 $AutopilotParams = @{
     Online = $true
-    TenantId = ${{secrets.EIDTENANT}}
-    AppId = ${{secrets.EIDAPPID}}
-    AppSecret = ${{secrets.EIDAPPSECRET}}
+    TenantId = $EIDTENANT
+    AppId = $EIDAPPID
+    AppSecret = $EIDAPPSECRET
 }
 
 Get-WindowsAutoPilotInfo @AutopilotParams
