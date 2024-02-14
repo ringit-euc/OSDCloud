@@ -1,8 +1,12 @@
 # Retrieve secrets from environment variables
-$TenantId = $env:EIDTENANT
-$AppId = $env:EIDAPPID
+$TenantID = $env:EIDTENANT
+$AppID = $env:EIDAPPID
 $AppSecret = $env:EIDAPPSECRET
 
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force:$true
-Install-Script get-windowsautopilotinfo -Confirm:$false -Force:$true
-get-windowsautopilotinfo -Online -TenantId $TenantId -AppId $AppId -AppSecret $AppSecret
+Set-ExecutionPolicy Unrestricted -Force
+
+Install-PackageProvider NuGet -Force -ErrorAction SilentlyContinue
+Install-Script Get-WindowsAutoPilotInfo -Force
+Get-WindowsAutoPilotInfo -Online -TenantId $TenantID -AppID $AppID -AppSecret $AppSecret 
+
+Set-ExecutionPolicy RemoteSigned -Force
