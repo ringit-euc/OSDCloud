@@ -59,10 +59,10 @@ $OOBEDeployJson = @'
                         "Microsoft.Office.OneNote"
                    ],
     "UpdateDrivers":  {
-                          "IsPresent":  true
+                          "IsPresent":  false
                       },
     "UpdateWindows":  {
-                          "IsPresent":  true
+                          "IsPresent":  false
                       }
 }
 '@
