@@ -5,14 +5,9 @@ Install-Script -Name Get-WindowsAutoPilotInfo -Force | Out-Null
 Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
 
 # Retrieve secrets from environment variables
-$TenantId = ${{secrets.EIDTENANT}}
-$AppId = ${{secrets.EIDAPPID}}
-$AppSecret = ${{secrets.EIDAPPSECRET}}
-
-Write-Host "Debugging: Tenant ID: $TenantId"
-Write-Host "Debugging: App ID: $AppId"
-# Write out the AppSecret for debugging. It's not recommended to output secrets like this in a real environment.
-Write-Host "Debugging: App Secret: $AppSecret"
+#$TenantId = ${{secrets.EIDTENANT}}
+#$AppId = ${{secrets.EIDAPPID}}
+#$AppSecret = ${{secrets.EIDAPPSECRET}}
 
 $AutopilotParams = @{
     Online = $true
@@ -20,9 +15,6 @@ $AutopilotParams = @{
     AppId = ${{secrets.EIDAPPID}}
     AppSecret = ${{secrets.EIDAPPSECRET}}
 }
-
-Write-Host "Debugging: Executing Get-WindowsAutoPilotInfo with parameters:"
-Write-Host "Debugging: $AutopilotParams"
 
 Get-WindowsAutoPilotInfo @AutopilotParams
 
