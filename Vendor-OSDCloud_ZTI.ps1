@@ -59,10 +59,10 @@ $OOBEDeployJson = @'
                         "Microsoft.Office.OneNote"
                    ],
     "UpdateDrivers":  {
-                          "IsPresent":  false
+                          "IsPresent":  true
                       },
     "UpdateWindows":  {
-                          "IsPresent":  false
+                          "IsPresent":  true
                       }
 }
 '@
@@ -80,7 +80,6 @@ PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -Force
 Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
 Start /Wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/ringit-euc/OSDCloud/main/Install-EmbeddedProductKey.ps1
-Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/ringit-euc/OSDCloud/main/AP-Test.ps1
 Start /Wait PowerShell -NoL -C Start-OOBEDeploy
 Start /Wait PowerShell -NoL -C Restart-Computer -Force
 '@
@@ -104,7 +103,7 @@ $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.c
 #   Restart-Computer
 #=======================================================================
 Write-Host "*****  REMOVE THE USB DRIVE NOW *****" -ForegroundColor Yellow -BackgroundColor Red 
-Read-Host "The next step is to reboot the machine, connect to wifi/lan then press Shift + F10 to open a command prompt. 
+Read-Host "The next step is to reboot the machine, connect to LAN then press Shift + F10 to open a command prompt. 
 Type-in OOBE.cmd, then hit enter and wait to complete the autopilot and updates build. 
 Press the ENTER key to continue...."
 wpeutil reboot
