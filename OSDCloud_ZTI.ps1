@@ -2,10 +2,9 @@ cls
 Write-Host "===================== OSDCloud Main Menu =======================" -ForegroundColor Cyan
 Write-Host " "
 Write-Host "1: Zero-Touch Windows 10 22H2 | en-us | Professional" -ForegroundColor Cyan
-Write-Host "2: Zero-Touch Windows 11 22H2 | en-us | Professional" -ForegroundColor Cyan
-Write-Host "3: [Test only] Zero-Touch Windows 11 23H2 | en-us | Professional" -ForegroundColor Cyan
-Write-Host "4: Start the Graphical OSDCloud (Manual Selection)" -ForegroundColor Cyan
-Write-Host "5: Exit" -ForegroundColor Cyan
+Write-Host "2: Zero-Touch Windows 11 23H2 | en-us | Professional" -ForegroundColor Cyan
+Write-Host "3: Start the Graphical OSDCloud (Manual Selection)" -ForegroundColor Cyan
+Write-Host "4: Exit" -ForegroundColor Cyan
 Write-Host " "
 Write-Host "================================================================" -ForegroundColor Cyan
 
@@ -16,10 +15,9 @@ $input = Read-Host "Please make a selection"
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 22H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
-    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 22H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
-    '3' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 23H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
-    '4' { Start-OSDCloudGUI } 
-    '5' { Exit }  
+    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 23H2 x64' -OSEdition Pro -OSLicense Retail -ZTI -Firmware -SkipAutopilot -SkipODT }
+    '3' { Start-OSDCloudGUI } 
+    '4' { Exit }  
 }
 
 Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
