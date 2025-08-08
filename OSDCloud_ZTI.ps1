@@ -2,7 +2,7 @@ cls
 Write-Host "===================== OSDCloud Main Menu =======================" -ForegroundColor Cyan
 Write-Host " "
 Write-Host "1: Zero-Touch Windows 11 23H2 | en-us | Professional" -ForegroundColor Cyan
-Write-Host "2: TEST ONLY - Zero-Touch Windows 11 24H2 | en-us | Professional" -ForegroundColor Cyan
+Write-Host "2: Zero-Touch Windows 11 24H2 | en-us | Professional" -ForegroundColor Cyan
 Write-Host "3: Start the Graphical OSDCloud (Manual Selection)" -ForegroundColor Cyan
 Write-Host "4: Exit" -ForegroundColor Cyan
 Write-Host " "
