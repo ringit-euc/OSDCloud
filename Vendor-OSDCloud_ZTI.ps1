@@ -1,4 +1,4 @@
-Write-Host  -ForegroundColor Cyan 'Windows 11 Pro 23H2 Autopilot en-US'
+Write-Host  -ForegroundColor Cyan 'Windows 11 Pro 25H2 Autopilot en-US'
 
 #================================================
 #   PreOS
@@ -20,7 +20,7 @@ Import-Module OSD -Force
 #================================================
 $Params = @{
     OSVersion = "Windows 11"
-    OSBuild = "23H2"
+    OSBuild = "25H2"
     OSEdition = "Pro"
     OSLanguage = "en-us"
     OSLicense = "Retail"
